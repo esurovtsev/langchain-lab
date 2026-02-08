@@ -1,4 +1,4 @@
-# Agent Skills Demo
+# Agent Skills Guide
 
 This project demonstrates the **agent skills pattern** — a mechanism for giving agents on-demand knowledge that shapes how they reason, without permanently bloating their context.
 
@@ -15,17 +15,12 @@ This repo exists to make that pattern obvious and inspectable.
 ## Project Structure
 
 ```
-├── agent_skills_demo.ipynb      # Main notebook — progressive skill pattern demo
+├── agent_skills_demo.ipynb      # Main notebook — progressive skill pattern guide
 ├── sample_project/              # A real project for the agent to explore
 ├── skills/                      # Skill files (Claude Code convention)
 │   ├── filesystem_navigation/
 │   │   └── SKILL.md
-│   ├── code_file_analysis/
-│   │   ├── SKILL.md
-│   │   └── patterns.md          # Level 3 progressive disclosure
-│   ├── config_file_recognition/
-│   │   └── SKILL.md
-│   └── documentation_summarization/
+│   └── config_file_recognition/
 │       └── SKILL.md
 ├── requirements.txt
 └── README.md
@@ -101,7 +96,7 @@ description: Guidelines for systematically exploring directory structures.
 ...
 ```
 
-The agent sees **only the name and description** in its system prompt. When it needs deeper guidance, it calls `load_skill("filesystem_navigation")` to load the full content. Some skills reference additional files for even deeper detail (progressive disclosure).
+The agent sees **only the name and description** in its system prompt. When it needs deeper guidance, it calls `load_skill("filesystem_navigation")` to load the full content. Skills can also reference additional files in their directory for even deeper detail (Level 3 progressive disclosure), though this is outside the scope of the guide.
 
 To add a new skill, create a new folder under `skills/` with a `SKILL.md`. No code changes needed.
 
