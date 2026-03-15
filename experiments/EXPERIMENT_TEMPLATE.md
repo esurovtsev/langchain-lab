@@ -12,25 +12,19 @@ One paragraph: what this experiment tests and why it exists.
 ```text
 NN-<slug>/
 ├── README.md
-├── requirements.txt
 ├── <notebook>.ipynb
 └── <assets>/
 ```
 
-## Setup
+## Experiment-Specific Requirements
 
-```bash
-python3 -m venv .venv
-source .venv/bin/activate
-pip install --upgrade pip
-pip install -r requirements.txt
-```
+- Only requirements unique to this experiment (avoid repeating global setup from root README).
+- External auth/services specific to this experiment.
+- Recommended `LANGCHAIN_PROJECT` value for tracing (optional).
 
-## Run
+## Notebook
 
-```bash
-jupyter notebook <notebook>.ipynb
-```
+- `<notebook>.ipynb`: what it demonstrates.
 
 ## Notes
 
