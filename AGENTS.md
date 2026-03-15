@@ -21,7 +21,6 @@ Each experiment must be self-contained so new episodes can be added without brea
   - `experiments/02-<topic-slug>`
 - Keep each experiment isolated:
   - notebooks
-  - local `requirements.txt` (if needed)
   - assets/data
   - support code
   - experiment README
@@ -34,7 +33,7 @@ When asked to add a new experiment:
 1. Copy structure from `experiments/EXPERIMENT_TEMPLATE.md`.
 2. Create `experiments/NN-<slug>/README.md`.
 3. Place notebook(s) and assets inside that folder only.
-4. Add/update `requirements.txt` only for that experiment.
+4. Update root `requirements.txt` if the experiment needs additional packages.
 5. Update the experiment index table in root `README.md`.
 
 ## Editing Policy
@@ -53,9 +52,10 @@ When asked to add a new experiment:
 
 ## Dependency Policy
 
-- Prefer per-experiment dependencies over global root dependencies.
-- If two experiments require different versions, keep them separated.
-- Do not introduce monorepo-wide tooling unless explicitly requested.
+- Use a single root `requirements.txt` for the whole lab.
+- Do not create `requirements.txt` files inside experiment folders unless explicitly requested.
+- Keep dependency additions minimal and justified by a concrete experiment need.
+- If a hard dependency conflict appears, escalate and propose an isolation strategy before changing structure.
 
 ## README Conventions
 
@@ -69,9 +69,10 @@ Root README should contain:
 Experiment README should contain:
 
 - objective/scope
-- setup instructions
-- environment variables (if needed)
-- run instructions
+- only experiment-specific prerequisites (no global venv/pip/jupyter/API-key boilerplate)
+- external auth/integrations specific to that experiment
+- optional experiment-specific tracing project name
+- notebook inventory and what each notebook demonstrates
 - references
 - notes/caveats
 
