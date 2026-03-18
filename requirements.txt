@@ -1,5 +1,6 @@
+deepagents
 langchain>=1.1.0
 langchain-openai>=1.0.3
+langchain-mcp-adapters
 langgraph>=1.0.3
-deepagents
 python-dotenv
