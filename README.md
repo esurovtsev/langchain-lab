@@ -70,8 +70,11 @@ Use experiment-specific `LANGCHAIN_PROJECT` values only when you want separate t
 ```text
 .
 ├── experiments/
+│   ├── mcp_helpers.py
+│   ├── notebook_helpers.py
 │   ├── 01-agent-skills/
 │   ├── 02-cli-vs-mcp/
+│   ├── 03-mcp-as-code/
 │   └── EXPERIMENT_TEMPLATE.md
 ├── LICENSE
 └── README.md
@@ -83,10 +86,11 @@ Use experiment-specific `LANGCHAIN_PROJECT` values only when you want separate t
 |---|---|---|
 | 01 | Agent Skills | `experiments/01-agent-skills` |
 | 02 | CLI vs MCP (CLI-First Agents) | `experiments/02-cli-vs-mcp` |
+| 03 | MCP as Code | `experiments/03-mcp-as-code` |
 
 ## How To Add A New Experiment
 
-1. Create a new folder using a numeric prefix, for example: `experiments/02-tools-routing`.
+1. Create a new folder using a numeric prefix, for example: `experiments/04-tools-routing`.
 2. Add an experiment-specific `README.md` inside that folder.
 3. Put notebooks and assets in that same folder.
 4. Update root `requirements.txt` only if the new experiment needs extra packages.

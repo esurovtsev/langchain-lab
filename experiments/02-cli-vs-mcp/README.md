@@ -18,9 +18,16 @@ This experiment studies a broader shift in agent tooling: moving from MCP-first 
 │   └── github-cli/
 │       └── SKILL.md
 ├── README.md
-├── mcp_helpers.py
 ├── mcp_config.json
 └── cli_vs_mcp_experiment.ipynb
+```
+
+Shared notebook helpers live one level up under `experiments/`:
+
+```text
+experiments/
+├── mcp_helpers.py
+└── notebook_helpers.py
 ```
 
 ## Experiment-Specific Requirements
@@ -44,7 +51,7 @@ This experiment also assumes:
   - shell path with no special CLI guidance
   - shell path with `SkillsMiddleware`
   - shell path with both skills and filesystem access so the agent can discover and read `SKILL.md`
-- `mcp_helpers.py`: helper utilities for loading MCP server config, resolving env placeholders, redacting sensitive values, and printing discovered MCP tools.
+- `../mcp_helpers.py`: shared helper utilities for loading MCP server config, resolving env placeholders, redacting sensitive values, and printing discovered MCP tools.
 - `skills/github-cli/SKILL.md`: reusable deterministic workflow for authenticated GitHub analysis via `gh`.
 
 ## What We Are Testing
