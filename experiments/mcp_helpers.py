@@ -17,13 +17,12 @@ def _resolve_env_placeholders(obj):
     if isinstance(obj, list):
         return [_resolve_env_placeholders(item) for item in obj]
     if isinstance(obj, str):
+
         def _replace(match):
             var_name = match.group(1)
             env_value = os.getenv(var_name)
             if env_value is None:
-                raise EnvironmentError(
-                    f"Environment variable '{var_name}' is not set"
-                )
+                raise EnvironmentError(f"Environment variable '{var_name}' is not set")
             return env_value
 
         return _ENV_VAR_PATTERN.sub(_replace, obj)
@@ -100,5 +99,5 @@ def print_tool_names_grid(tools, cols=3, col_width=30, sort_names=True):
     print("=" * (col_width * cols))
 
     for i in range(0, len(tool_names), cols):
-        row = tool_names[i:i + cols]
+        row = tool_names[i : i + cols]
         print("".join(f"{name:<{col_width}}" for name in row))
